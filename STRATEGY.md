@@ -48,15 +48,28 @@ We do not clone virtual machines. We **replicate the DNA**.
 - **Bali's Edge:** Chaos Mode testing ensures self-healing and resilience.
 - **Goal:** Phase 2 deployment—turning discovered SOPs into high-volume automation.
 
-## 9. Technical Methodologies
+## 10. Core Assets & Repository Map
 
-### The "Mirror" Technique (Data Fidelity)
-- **Step 1:** Obtain sanitized JSON output from the production system (e.g., Zoho).
-- **Step 2:** Bali updates the Mock to return that exact structure (nesting, date formats, etc.).
-- **Step 3:** n8n workflow is built and validated 100% offline.
-- **The Win:** "If it works on the Mock, it works on the Real Thing."
+- **Rebuild DNA:** `forge-clawd/agent-blueprint` (Branch: `main`)
+  - Location: `/dna` (Golden image for AGENTS, SOUL, USER, IDENTITY).
+  - Infrastructure: `/infra` (Terraform definitions for GCE provisioning).
+  - Bootstrap: `bootstrap.sh` (One-line dependency installer).
 
-### The "Bridge" Strategy
-- Use Doctrine A to monitor client behavior via activity logs.
-- Identify recurring patterns in tool usage.
-- Codify those patterns into a Doctrine B "Machine" for Phase 2 upsell.
+- **Mock POC Sandbox:** `forge-clawd/mock-crm-poc`
+  - URL: <https://mock-crm-poc.vercel.app>
+  - App: Next.js 15 (Contacts, Deals, Live Activity sidebar).
+  - Features: Chaos Mode Toggle (random 500/429/504 errors), Global Data Reset (`/api/reset`).
+
+## 11. Command & Control SOPs
+
+### Provisioning a New Colleague
+1. Run Terraform apply to create VM (Machine: `c3d-standard-4`).
+2. Execute `bootstrap.sh` via startup script.
+3. Inject project-specific `.env` from local encrypted storage.
+4. Verify Slack connectivity via manual mention.
+
+### Executing a Sandbox Validation
+1. Enable **Chaos Mode** for resilience testing.
+2. Use the **Mirror Technique** with client JSON samples.
+3. Build n8n logic against the Mock URL.
+4. Generate **Proof of Life** report for client sign-off.
