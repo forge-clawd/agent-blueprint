@@ -34,25 +34,29 @@ We do not clone virtual machines. We **replicate the DNA**.
 - **Zero Exposure:** API keys and secrets stay in `.env`. They are never committed to Git or printed in chat transcripts.
 - **Isolation:** Each project gets its own VM and its own `.env` to prevent cross-contamination.
 
-## 7. The Force Multipliers (Dominant Business Advantage)
+## 8. Tactical Doctrines
 
-### 1. The "Chaos Range" (Robustness Verification)
-We don't just build for the "Happy Path." We build for the Crash.
-- **Concept:** Every mock environment includes a **Chaos Mode**. When enabled, the API will randomly throw 500 Server Errors, 429 Rate Limits, or 5s Timeouts (e.g., 20% failure rate).
-- **The Win:** Forces n8n workflows to be built with robust error-handling (retries, fallbacks) offline. Workflows are bulletproof before they touch production.
+### Doctrine A: "The Arsenal" (Modular Functionality)
+- **Strategy:** Provide the weapons (Atomic Tools); the client is the soldier (Decision Maker).
+- **n8n Role:** Function-as-a-Service (e.g., "Create Item," "Update Vendor").
+- **Bali's Edge:** Expose these via MCP. Bridges the gap between manual processes (Excel) and structured ERPs.
+- **Goal:** Phase 1 deployment to establish tools and discover SOPs.
 
-### 2. The "Pre-Fab" Arsenal (Speed to Value)
-We maintain a library of **Standard Mocks** for common industry tools:
-- **Shopify Mock** (Orders/Products)
-- **QuickBooks Mock** (Invoices)
-- **Jira Mock** (Tickets)
-- **The Win:** Start building during the discovery call. "I have a test environment for that ready to go."
+### Doctrine B: "The Machine" (Autonomous Systems)
+- **Strategy:** Build the factory; the client monitors the dashboard.
+- **n8n Role:** Autonomous Agent / End-to-end logic.
+- **Bali's Edge:** Chaos Mode testing ensures self-healing and resilience.
+- **Goal:** Phase 2 deployment—turning discovered SOPs into high-volume automation.
 
-### 3. The "Black Box" Replay (Data Fidelity)
-Handle sensitive client data without ever touching their secure environment.
-- **Concept:** Request one sanitized JSON sample. Bali loads that specific schema into the Mock.
-- **The Win:** Validate 100% of the transformation logic offline.
+## 9. Technical Methodologies
 
-### 4. The "Proof of Life" Receipt (Accountability)
-- **Concept:** Generate a "Test Run Report" (PDF/Markdown) after validation.
-- **The Win:** "Executed 50 test scenarios. 100% success rate. Logs attached." Justifies rates and builds massive trust.
+### The "Mirror" Technique (Data Fidelity)
+- **Step 1:** Obtain sanitized JSON output from the production system (e.g., Zoho).
+- **Step 2:** Bali updates the Mock to return that exact structure (nesting, date formats, etc.).
+- **Step 3:** n8n workflow is built and validated 100% offline.
+- **The Win:** "If it works on the Mock, it works on the Real Thing."
+
+### The "Bridge" Strategy
+- Use Doctrine A to monitor client behavior via activity logs.
+- Identify recurring patterns in tool usage.
+- Codify those patterns into a Doctrine B "Machine" for Phase 2 upsell.
